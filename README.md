@@ -9,6 +9,7 @@ My-Disease-Predictor is a simple web application built using Flask and machine l
 
 
 ![](Homepage.jpg)
+![Home page](https://github.com/user-attachments/assets/2312ddbe-ca3a-456a-b2e9-dcf8c62b41cb)
 
 
 
