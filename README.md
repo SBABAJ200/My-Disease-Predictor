@@ -22,5 +22,5 @@ This project is a web-based application for predicting the likelihood of stroke 
 
 
 # Installation
-* Execute the command: 'python app.py'
+* Execute the command: `python app.py`
 * Open http://127.0.0.1:5000/ in your  web browser
