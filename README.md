@@ -18,4 +18,4 @@ This project is a web-based application for predicting the likelihood of stroke 
 
 
 # Installation
-* Execute the command: ![grey text] python app.py
+* Execute the command: ![Grey text] python app.py
