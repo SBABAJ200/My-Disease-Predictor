@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  /* background: url("{{ url_for("static", filename="images/Healthcarepicture.jpg") }}")
+    no-repeat center center fixed; */
+  background-image: url("../Images/Healthcare\ picture.jpg");
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.bg{
+  background:rgba(3, 30 ,43,0.8);
+  /*opacity:0.8 ;*/
+  width: 100;
+  padding:20px ;
+}
+h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000000;
+}
+.button {
+  background: #3498db;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  opacity: 1;
+}
+.button:hover {
+  background-color: #2980b9;
+}
