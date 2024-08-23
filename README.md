@@ -4,13 +4,26 @@
 This project is a web-based application for predicting the likelihood of stroke and diabetes using user-provided medical information.
 
 
-## Overview
+## Overview:
 My-Disease-Predictor is a simple web application built using Flask and machine learning algorithms to predict the likelihood of diseases like stroke and diabetes. Users can input various health metrics such as age, gender, blood pressure, cholesterol levels, BMI, and more. The application then processes these inputs and provides a prediction of the user's risk for these conditions.
 
 
 ![](Homepage.jpg)
 ![Home page](https://github.com/user-attachments/assets/2312ddbe-ca3a-456a-b2e9-dcf8c62b41cb)
 
+
+## Repository Structure:
+`app.py`:  The main Flask application file that serves as the engine for this project. It handles routing, data input, prediction, and rendering of HTML templates.
+
+`static`/: Contains the static files like CSS, images, etc.
+
+`style.css`: Adds styling and enhances the look of the application.
+
+`templates`/: Contains HTML files that define the structure and behavior of the web app.
+
+`ipynb`: Contains the pre-trained machine learning models.
+
+`requirements.txt`: Lists all the Python dependencies required for the project.
 
 
 
@@ -25,6 +38,11 @@ My-Disease-Predictor is a simple web application built using Flask and machine l
 
 
 
-## Installation
+## Installation:
 * Execute the command: `python app.py`
 * Open http://127.0.0.1:5000/ in your  web browser
+
+
+## Future Work:
+* Improve the model accuracy with more advanced algorithms
+* Add more features to the user interface for better user experience
