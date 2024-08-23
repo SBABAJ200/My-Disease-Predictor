@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" type="text/css" href="../static/css/heart_disease_prediction.css" />
+    <title>Heart Disease Prediction</title>
+</head>
+
+<body>
+    <h1>Predict Your Heart Disease</h1>
+    <div class="container">
+        <div class="form-section">
+            <h2>Medical Information</h2>
+            <form id="predictionForm" method="POST" action="/predict_stroke">
+                <label for="age">Age:
+                    <input type="number" name="age" id="age" required value="{{ form_data['age'] if form_data else '' }}" />
+                </label>
+                <label for="gender">Gender:
+                    <select name="gender" id="gender" required>
+                        <option value="1" {% if form_data and form_data['gender'] == '1' %}selected{% endif %}>Male</option>
+                        <option value="0" {% if form_data and form_data['gender'] == '0' %}selected{% endif %}>Female</option>
+                    </select>
+                </label>
+                <label for="hypertension">Hypertension:
+                    <select name="hypertension" id="hypertension" required>
+                        <option value="1" {% if form_data and form_data['hypertension'] == '1' %}selected{% endif %}>Yes</option>
+                        <option value="0" {% if form_data and form_data['hypertension'] == '0' %}selected{% endif %}>No</option>
+                    </select>
+                </label>
+                <label for="heart_disease">Heart Disease:
+                    <select name="heart_disease" id="heart_disease" required>
+                        <option value="1" {% if form_data and form_data['heart_disease'] == '1' %}selected{% endif %}>Yes</option>
+                        <option value="0" {% if form_data and form_data['heart_disease'] == '0' %}selected{% endif %}>No</option>
+                    </select>
+                </label>
+                <label for="smoking_status">Smoking Status:
+                    <select name="smoking_status" id="smoking_status" required>
+                        <option value="0" {% if form_data and form_data['smoking_status'] == '0' %}selected{% endif %}>Never Smoked</option>
+                        <option value="1" {% if form_data and form_data['smoking_status'] == '1' %}selected{% endif %}>Formerly Smoked</option>
+                        <option value="2" {% if form_data and form_data['smoking_status'] == '2' %}selected{% endif %}>Smokes</option>
+                        <option value="3" {% if form_data and form_data['smoking_status'] == '3' %}selected{% endif %}>Unknown</option>
+                    </select>
+                </label>
+                <label for="bmi">BMI:
+                    <input type="number" name="bmi" id="bmi" step="0.01" required value="{{ form_data['bmi'] if form_data else '' }}" />
+                </label>
+                <label for="avg_glucose_level">Glucose Level:
+                    <input type="number" name="avg_glucose_level" id="avg_glucose_level" step="0.01" required value="{{ form_data['avg_glucose_level'] if form_data else '' }}" />
+                </label>
+                <label for="residence_type">Residence Type:
+                    <select name="Residence_type" id="Residence_type" required>
+                        <option value="1" {% if form_data and form_data['Residence_type'] == '1' %}selected{% endif %}>Urban</option>
+                        <option value="0" {% if form_data and form_data['Residence_type'] == '0' %}selected{% endif %}>Rural</option>
+                    </select>
+                </label>
+                <label for="work_type">Work Type:
+                    <select name="work_type" id="work_type" required>
+                        <option value="0" {% if form_data and form_data['work_type'] == '0' %}selected{% endif %}>Private</option>
+                        <option value="1" {% if form_data and form_data['work_type'] == '1' %}selected{% endif %}>Self-employed</option>
+                        <option value="2" {% if form_data and form_data['work_type'] == '2' %}selected{% endif %}>Govt Job</option>
+                        <option value="3" {% if form_data and form_data['work_type'] == '3' %}selected{% endif %}>Children</option>
+                        <option value="4" {% if form_data and form_data['work_type'] == '4' %}selected{% endif %}>Never worked</option>
+                    </select>
+                </label>
+                <label for="ever_married">Ever Married:
+                    <select name="ever_married" id="ever_married" required>
+                        <option value="1" {% if form_data and form_data['ever_married'] == '1' %}selected{% endif %}>Yes</option>
+                        <option value="0" {% if form_data and form_data['ever_married'] == '0' %}selected{% endif %}>No</option>
+                    </select>
+                </label>
+                <input type="submit" value="Predict" />
+            </form>
+        </div>
+    </div>
+    <div id="results" style="margin-top: 20px;">
+        <!-- The prediction result will be displayed here -->
+        {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+        <ul>
+            <li><strong>Probability of No Stroke:</strong> {{ probabilities["No Stroke"] }}</li>
+            <li><strong>Probability of Stroke:</strong> {{ probabilities["Stroke"] }}</li>
+        </ul>
+        {% if links %}
+        <h3>Helpful Resources</h3>
+        <ul>
+            {% for link in links %}
+            <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endif %}
+    </div>
+    <div class="data-info">
+        <h2>Data Information</h2>
+        <table>
+            <tr>
+                <td>Gender:</td>
+                <td>Male or Female</td>
+            </tr>
+            <tr>
+                <td>Hypertension:</td>
+                <td>Whether the patient has hypertension or not</td>
+            </tr>
+            <tr>
+                <td>Heart Disease:</td>
+                <td>Whether the patient has a history of heart disease</td>
+            </tr>
+            <tr>
+                <td>Smoking Status:</td>
+                <td>Patient's smoking status (formerly smoked, never smoked, smokes)</td>
+            </tr>
+            <tr>
+                <td>BMI:</td>
+                <td>Body Mass Index</td>
+            </tr>
+            <tr>
+                <td>Glucose Level:</td>
+                <td>Average glucose level in the blood</td>
+            </tr>
+            <tr>
+                <td>Residence Type:</td>
+                <td>Urban or Rural residence</td>
+            </tr>
+            <tr>
+                <td>Work Type:</td>
+                <td>Type of work (e.g., Private, Self-employed, Govt job, Children, Never worked)</td>
+            </tr>
+            <tr>
+                <td>Ever Married:</td>
+                <td>Whether the patient has ever been married</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
