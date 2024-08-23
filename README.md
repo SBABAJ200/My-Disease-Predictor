@@ -46,8 +46,20 @@ git clone https://github.com/SBABAJ200/My-Disease-Predictor.git
 python -m venv venv
 
 ```
+#### Activate the virtuall enviroment
 ```
-venv/Scripts/activate
+.\venv\Scripts\Activate
+```
+#### Install required packages:
+```
+pip install -r requirements.txt
+
+```
+
+#### Run the application
+```
+python app.py
+
 ```
 
 
