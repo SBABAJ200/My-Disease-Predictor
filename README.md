@@ -46,27 +46,32 @@ git clone https://github.com/SBABAJ200/My-Disease-Predictor.git
 python -m venv venv
 
 ```
-#### Activate the virtuall enviroment
+#### Activate the virtual enviroment
+Activate the virtual environment to ensure that your dependencies are installed in an isolated environment:
 ```
 .\venv\Scripts\Activate
 ```
 #### Install required packages:
+Install the necessary dependencies listed in your requirements.txt file:
 ```
 pip install -r requirements.txt
 
 ```
 
 #### Run the application
+Once everything is set up, you can run your Flask application using:
 ```
 python app.py
 
 ```
 
+#### Access the website
+Open your web browser and go to the following URL to access the application:
 
-## Installation:
-* Execute the command: `python app.py`
-* Open http://127.0.0.1:5000/ in your  web browser
-
+```
+http://127.0.0.1:5000/
+```
+This should open the home page of your Disease Predictor application.
 
 ## Future Work:
 * Improve the model accuracy with more advanced algorithms
